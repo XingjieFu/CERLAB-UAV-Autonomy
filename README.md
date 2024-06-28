@@ -1,3 +1,9 @@
+> 克隆并修改于：[https://github.com/Zhefan-Xu/CERLAB-UAV-Autonomy](https://github.com/Zhefan-Xu/CERLAB-UAV-Autonomy)
+> 
+> 其中：simulation分支为px4仿真平台，realfly为px4实飞仓库，实飞硬件平台为Fast-Drone-250无人机平台（待更新）
+>
+> 更多环境搭建环境配置教程参考我的博客：[CERLAB无人机自主框架-MGodmonkey blog](https://www.mgodmonkey.cn/categories/CERLAB%E6%97%A0%E4%BA%BA%E6%9C%BA%E8%87%AA%E4%B8%BB%E6%A1%86%E6%9E%B6/)
+
 # CERLAB UAV Autonomy Framework
 [![Releases](https://img.shields.io/github/release/Zhefan-Xu/CERLAB-UAV-Autonomy.svg)](https://github.com/Zhefan-Xu/CERLAB-UAV-Autonomy/releases)
 ![Noetic Ubuntu 20.04](https://github.com/Zhefan-Xu/CERLAB-UAV-Autonomy/actions/workflows/Ubuntu20.04-build.yaml/badge.svg) 
