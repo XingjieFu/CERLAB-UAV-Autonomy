@@ -21,7 +21,7 @@ img_topic = "/camera/color/image_raw"
 device = "cpu"
 weight = "weights/weight_AP05:0.253207_280-epoch.pth"
 class_names = "config/coco.names"
-thresh = 0.65
+thresh = 0.8
 
 class yolo_detector:
     def __init__(self):

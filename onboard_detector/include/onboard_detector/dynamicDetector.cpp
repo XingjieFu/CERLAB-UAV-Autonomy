@@ -510,7 +510,7 @@ namespace onboardDetector{
 
         // velocity visualization pub
         this->velVisPub_ = this->nh_.advertise<visualization_msgs::MarkerArray>(this->ns_ + "/velocity_visualizaton", 10);
-    }   
+    }
 
     void dynamicDetector::registerCallback(){
         // depth pose callback
@@ -552,6 +552,7 @@ namespace onboardDetector{
 
     void dynamicDetector::depthPoseCB(const sensor_msgs::ImageConstPtr& img, const geometry_msgs::PoseStampedConstPtr& pose){
         // store current depth image
+        std::cout << this->hint_ << "come in this function" << std::endl;
         cv_bridge::CvImagePtr imgPtr = cv_bridge::toCvCopy(img, img->encoding);
         if (img->encoding == sensor_msgs::image_encodings::TYPE_32FC1){
             (imgPtr->image).convertTo(imgPtr->image, CV_16UC1, this->depthScale_);
@@ -566,6 +567,7 @@ namespace onboardDetector{
         this->position_(1) = camPoseMatrix(1, 3);
         this->position_(2) = camPoseMatrix(2, 3);
         this->orientation_ = camPoseMatrix.block<3, 3>(0, 0);
+        std::cout << "Value of position_(0): " << this->position_(0) << std::endl;
 
         this->positionColor_(0) = camPoseColorMatrix(0, 3);
         this->positionColor_(1) = camPoseColorMatrix(1, 3);

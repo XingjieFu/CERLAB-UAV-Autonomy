@@ -7,7 +7,7 @@ odom_topic: /mavros/local_position/odom
 
 
 # Camera Parameters
-depth_intrinsics: [387.1536560058594, 387.1536560058594, 321.3246154785156, 233.5471954345703] # fx,  fy, cx, cy realsense
+depth_intrinsics: [389.5939025878906, 389.5939025878906, 320.79925537109375, 242.4622344970703] # fx,  fy, cx, cy realsense
 color_intrinsics: [604.404296875, 604.404296875, 325.03704833984375, 245.77059936523438] # intel realsense
 depth_scale_factor: 1000 # 1000 for Intel Realsense Camera
 depth_min_value: 0.5
@@ -25,49 +25,49 @@ body_to_camera_color: [0.0,  0.0,  1.0,  0.065,
                        0.0, -1.0,  0.0,  0.12,
                        0.0,  0.0,  0.0,  1.0]
 
-# Raycasting (max depth)
+# Raycasting (最大深度)
 raycast_max_length: 5.0
 
-# time difference
+# 时间差异
 time_difference: 0.033
 
 # sensor data processing
-voxel_occupied_thresh: 15 # min num of points for a voxel to be occupied in voxel filter
+voxel_occupied_thresh: 15 # 体素过滤器中占用体素的最小点数（即点云中至少多少个点可作为一个障碍物）
 
 # dbscan
-ground_height: 0.2  # height of ground to remove ground points
-dbscan_min_points_cluster: 10 # 20: 4.0m range; 30: 3.5m range 40: 3.0m range
-dbscan_search_range_epsilon: 0.1 # searching range radius
+ground_height: 0.2  # 移除地面点的地面高度
+dbscan_min_points_cluster: 10 # 20：4.0米范围；30：3.5米范围 40：3.0米范围
+dbscan_search_range_epsilon: 0.1 # 搜索范围半径
 
-# bounding box filtering
+# 边界框过滤
 filtering_BBox_IOU_threshold: 0.05
 yolo_overwrite_distance: 3
 
-# tracking and data association
-history_size: 100 # size of tracking history. history[0] is current detection
-similarity_threshold: 0.02 # similiary threshold for data association matching comparison
-fix_size_history_threshold: 10 # History threshold (num of frames) to fix box size
-fix_size_dimension_threshold: 0.4 # dimension threshold (size of proportional) to fix box size
+# 跟踪和数据关联
+history_size: 100 # 跟踪历史记录的大小。 History[0]是当前检测
+similarity_threshold: 0.02 # 数据关联匹配比较的相似阈值
+fix_size_history_threshold: 10 # 用于固定框大小的历史阈值（帧数）
+fix_size_dimension_threshold: 0.4 # 用于固定框大小的 Histdimension 阈值（比例大小）
 
-e_p: 0.25
-e_q_pos: 0.01
-e_q_vel: 0.05
-e_q_acc: 0.05
-e_r_pos: 0.04
-e_r_vel: 0.3
-e_r_acc: 0.6
+e_p: 0.25 # 协方差参数
+e_q_pos: 0.01 # 位置预测噪声
+e_q_vel: 0.05 # 速度预测噪声
+e_q_acc: 0.05 # 加速度预测噪声
+e_r_pos: 0.04 # 位置测量噪声
+e_r_vel: 0.3  # 速度测量噪声
+e_r_acc: 0.6  # 加速度测量噪声
 
-kalman_filter_averaging_frames: 10
+kalman_filter_averaging_frames: 10  # 卡尔曼滤波观察的帧数值
 
-# classification
-frame_skip: 5 # num of frames skiped when comparing 2 point clouds
+# 分类
+frame_skip: 5 # 比较 2 个点云时跳过的帧数
 dynamic_velocity_threshold: 0.15
 dynamic_voting_threshold: 0.8
-maximum_skip_ratio: 0.5 # the upper limit of points that are skipped(out of previous FOV) to be classfified as dynamic
-frames_force_dynamic: 10 # Range of searching dynamic obstacles in box history
-frames_force_dynamic_check_range: 30 # threshold for forcing dynamic obstacles
-dynamic_consistency_threshold: 1 # obstacles being voted as dynamic for continuous k frames are eligible to be classified as dynamic
+maximum_skip_ratio: 0.5 # 被分类为动态的跳过（之前的 FOV）点的上限
+frames_force_dynamic: 10 # 盒子历史中搜索动态障碍物的范围
+frames_force_dynamic_check_range: 30 # 强制动态障碍的阈值
+dynamic_consistency_threshold: 1 # 连续 k 帧被投票为动态的障碍物有资格被归类为动态
 
-# constrain size
+# 限制尺寸
 constrain_size: true
 target_object_size: [0.5, 0.5, 1.7]
