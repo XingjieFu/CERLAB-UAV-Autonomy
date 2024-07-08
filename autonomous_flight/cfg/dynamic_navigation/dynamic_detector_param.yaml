@@ -1,4 +1,4 @@
-localization_mode: 0 # 0: pose (default) 1: odom
+localization_mode: 1 # 0: pose (default) 1: odom
 
 depth_image_topic: /camera/depth/image_raw
 aligned_depth_image_topic: /camera/depth/image_raw

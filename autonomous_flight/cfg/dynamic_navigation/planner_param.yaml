@@ -23,7 +23,7 @@ poly_traj/maximum_iteration_num: 10
 poly_traj/use_pwl_failsafe: true
 
 bspline_traj/timestep: 0.1
-bspline_traj/distance_threshold: 0.5
+bspline_traj/distance_threshold: 0.3
 bspline_traj/distance_threshold_dynamic: 0.5
 bspline_traj/max_vel: 1.0 # this is not used. Will be overwritten.
 bspline_traj/max_acc: 1.0 # this is not used. Will be overwritten.
